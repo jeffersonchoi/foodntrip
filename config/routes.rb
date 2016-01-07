@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    # invitations: 'user/invitations',
+    # sessions: 'user/sessions',
+    # registrations: 'user/registrations',
+    # passwords: 'user/passwords'
+  }, path: '', path_names: {sign_in: 'login'}
+
+  devise_scope :user do
+    root to: "users#index"
+    get '/logout', to: 'devise/sessions#destroy', as: :signout
+  end
+
+  # get '/login' => "devise/sessions#new"
 
   resources :users
 
+  # root to: 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
