@@ -15,7 +15,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   #devise  In production, :host should be set to the actual host of your application.
-  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'peaceful-reaches-6445.herokuapp.com' }
 
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
