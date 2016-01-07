@@ -17,12 +17,6 @@ Rails.application.configure do
   #devise  In production, :host should be set to the actual host of your application.
   # config.action_mailer.default_url_options = { host: 'peaceful-reaches-6445.herokuapp.com' }
   config.action_mailer.default_url_options = {:host => 'peaceful-reaches-6445.herokuapp.com'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
-    :port    => 25,
-    :domain  => 'peaceful-reaches-6445.herokuapp.com'
-  }
 
   ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
