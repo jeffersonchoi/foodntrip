@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
   devise_for :users, controllers: {
     # invitations: 'user/invitations',
     # sessions: 'user/sessions',
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   }, path: '', path_names: {sign_in: 'login'}
 
   devise_scope :user do
-    root to: "users#index"
+    root to: "welcome#index"
     get '/logout', to: 'devise/sessions#destroy', as: :signout
   end
 
