@@ -10,7 +10,7 @@
 .index-tran-box {
   background: image-url("index_square.png") no-repeat;
   text-align: center;
-  height: 32em;
+  height: 45em;
   width: 32em;
   margin: 0 auto;
   margin-top: 10em;
@@ -52,4 +52,11 @@
 
 .index-last-button {
   margin-top: 2em;
+}
+
+
+@media only screen and (max-width: 500px) {
+    html {
+        max-height: 1em;
+    }
 }
