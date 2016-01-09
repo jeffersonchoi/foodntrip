@@ -5,36 +5,35 @@
   font-family: sans-serif;
 }
 .index-box {
-  height: 58vh;
+  // height: 0em;
 }
 .index-tran-box {
   background: image-url("index_square.png") no-repeat;
-  border: 0.5px solid white;
   text-align: center;
   height: 32em;
   width: 32em;
   margin: 0 auto;
-  margin-top: 20vh;
+  margin-top: 12em;
 }
 
 .index-header {
-  padding-top: 8vh;
+  padding-top: 1.2em;
   color: brown;
-  font-size: 42pt;
+  font-size: 3.6em;
 }
 .index-slogan {
-  margin-top: 1vh;
+  margin-top: 0.2em;
   color: brown;
-  font-size: 16pt;
+  font-size: 1.4em;
 }
 
 .index-orange-button, .index-red-button {
   border: 1px solid orange;
   background-color: #ff8a00;
   width: 70%;
-  height: 5.5vh;
+  height: 2.5em;
   color: white;
-  font-size: 15pt;
+  font-size: 1.3em;
   cursor: pointer;
   letter-spacing: 0.2em;
 }
