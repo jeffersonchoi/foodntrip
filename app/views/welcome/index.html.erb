@@ -1,12 +1,14 @@
-<html class="index-background">
-  <div class="index-tran-box">
-    <div class="index-box">
-      <div class="index-header"> FoodnTrip </div>
-      <div class="index-slogan"> SLOGAN*SLOGAN*SLOGAN</div>
+<% provide(:title, "HomePage") %>
 
-      <div class="index-button"><%= button_to "Sign in", new_user_session_path, :class => "index-orange-button" %></div>
-      <div class="index-button"><%= button_to "Register", new_user_registration_path, :class => "index-orange-button", :method => "get"	%></div>
-      <div class="index-last-button"><%= button_to "I Want it Now!", '#', :class=> "index-red-button", :method => "get" %></div>
+<html class="index-background">
+    <div class="index-tran-box">
+      <div class="index-box">
+        <div class="index-header"> FoodnTrip </div>
+        <div class="index-slogan"> SLOGAN*SLOGAN*SLOGAN</div>
+
+        <div class="index-button"><%= button_to "Sign in", new_user_session_path, :class => "index-orange-button" %></div>
+        <div class="index-button"><%= button_to "Register", new_user_registration_path, :class => "index-orange-button", :method => "get"	%></div>
+        <div class="index-last-button"><%= button_to "I Want it Now!", '#', :class=> "index-red-button", :method => "get" %></div>
+      </div>
     </div>
-  </div>
 </html>
