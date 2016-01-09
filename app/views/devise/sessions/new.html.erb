@@ -1,7 +1,6 @@
-<body class="login-page-background">
-  <div class="login-page-container">
+
     <div> FoodnTrip </div>
-    <div> SLOGAN*SLOGAN*SLOGAN</div>
+
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.label :email %>
       <div class="field">
@@ -25,5 +24,3 @@
 
 
     <%= render "devise/shared/links" %>
-  </div>
-</body>

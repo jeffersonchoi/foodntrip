@@ -1,14 +1,56 @@
-.login-page-background {
+.index-background {
   background: image-url("bgimage.jpg") repeat;
   height: 100%;
   width: 100%;
+  font-family: sans-serif;
+}
+.index-box {
+  height: 58vh;
+}
+.index-tran-box {
+  background: image-url("index_square.png") no-repeat;
+  border: 0.5px solid white;
+  text-align: center;
+  height: 58vh;
+  width: 32em;
+  margin: 0 auto;
+  margin-top: 20vh;
 }
 
-.login-page-container {
-  background-color: #f3e6da;
-  opacity: 0.7;
-  padding: 10em 0;
-  text-align: center;
-  width: 30%;
-  margin: 0 auto;
+.index-header {
+  padding-top: 8vh;
+  color: brown;
+  font-size: 42pt;
+}
+.index-slogan {
+  margin-top: 1vh;
+  color: brown;
+  font-size: 16pt;
+}
+
+.index-orange-button, .index-red-button {
+  border: 1px solid orange;
+  background-color: #ff8a00;
+  width: 70%;
+  height: 5.5vh;
+  color: white;
+  font-size: 15pt;
+  cursor: pointer;
+  letter-spacing: 0.2em;
+}
+
+.index-orange-button:hover {
+  background-color: red;
+}
+
+.index-red-button {
+  background-color: #ee0b14;
+}
+
+.index-button {
+  margin: 2em 0;
+}
+
+.index-last-button {
+  margin-top: 2em;
 }
