@@ -6,7 +6,7 @@
 
       <div class="index-button"><%= button_to "Sign in", new_user_session_path, :class => "index-orange-button" %></div>
       <div class="index-button"><%= button_to "Register", new_user_registration_path, :class => "index-orange-button", :method => "get"	%></div>
-      <div class="index-last-button"><%= button_to "I Want it Now!", '#', :class=> "index-red-button" %></div>
+      <div class="index-last-button"><%= button_to "I Want it Now!", '#', :class=> "index-red-button", :method => "get" %></div>
     </div>
   </div>
 </html>
