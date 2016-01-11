@@ -101,6 +101,8 @@ GEM
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     pg (0.18.4)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -201,6 +203,7 @@ DEPENDENCIES
   jquery-rails
   mailcatcher
   pg
+  pundit
   rails (= 4.2.4)
   rails_12factor
   sass-rails (~> 5.0)
