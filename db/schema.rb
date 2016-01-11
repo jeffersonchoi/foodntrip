@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160111201432) do
     t.string   "last_name"
     t.date     "dob"
     t.string   "gender"
+    t.integer  "role",                   default: 0
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
