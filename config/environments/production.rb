@@ -16,17 +16,22 @@ Rails.application.configure do
 
   #devise  In production, :host should be set to the actual host of your application.
   # config.action_mailer.default_url_options = { host: 'peaceful-reaches-6445.herokuapp.com' }
+
+
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = {:host => 'peaceful-reaches-6445.herokuapp.com'}
+  
+  config.action_mailer.delivery_method = :smtp
 
   ActionMailer::Base.smtp_settings = {
-  :address        => 'smtp.sendgrid.net',
-  :port           => '587',
-  :authentication => :plain,
-  :user_name      => ENV['SENDGRID_USERNAME'],
-  :password       => ENV['SENDGRID_PASSWORD'],
-  :domain         => 'heroku.com',
-  :enable_starttls_auto => true
-}
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
