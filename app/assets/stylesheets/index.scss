@@ -1,3 +1,5 @@
+$maincolor: #64cf76;
+
 .index-background {
   background: image-url("bgimage.jpg") repeat;
   height: 100%;
@@ -21,15 +23,45 @@
   color: brown;
   font-size: 3.6em;
 }
+.index-header-title, .index-header-title:hover {
+  color: brown;
+  text-decoration: none;
+}
+
 .index-slogan {
   margin-top: 0.2em;
   color: brown;
   font-size: 1.4em;
 }
 
+.login-form {
+  margin-top: 2em;
+  label {
+    color: brown;
+    font-size: 1.3em;
+  }
+}
+
+.login-input-field {
+  text-align: center;
+  width: 70%;
+  border-style: solid;
+  border-color: $maincolor;
+}
+
+.login-btn {
+  width: 70%;
+  background-color: $maincolor;
+  color: white;
+  letter-spacing: 0.3em;
+}
+.devise-shared-links {
+  margin-top: 1em;
+}
+
 .index-orange-button, .index-red-button {
   border: 1px solid orange;
-  background-color: #ff8a00;
+  background-color: $maincolor;
   width: 70%;
   height: 2.5em;
   color: white;

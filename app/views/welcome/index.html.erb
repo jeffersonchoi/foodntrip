@@ -6,7 +6,7 @@
         <div class="index-header"> FoodnTrip </div>
         <div class="index-slogan"> SLOGAN*SLOGAN*SLOGAN</div>
 
-        <div class="index-button"><%= button_to "Sign in", new_user_session_path, :class => "btn btn-lng index-orange-button" %></div>
+        <div class="index-button"><%= button_to "Sign in", new_user_session_path, :class => "btn btn-lng index-orange-button", :method => "get" %></div>
         <div class="index-button"><%= button_to "Register", new_user_registration_path, :class => "btn btn-lng index-orange-button", :method => "get"	%></div>
         <div class="index-last-button"><%= button_to "I Want it Now!", '#', :class=> " btn btn-lng index-red-button", :method => "get" %></div>
       </div>

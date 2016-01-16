@@ -8,15 +8,19 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorize @users
   end
 
   def create
   end
 
   def edit
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
+    authorize @users
   end
 
   def destroy
