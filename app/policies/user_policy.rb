@@ -7,7 +7,6 @@ class UserPolicy < ApplicationPolicy
 		user.register_user? || user.staff_user? || user.admin? || user.super_admin?
 	end
 
-
 	def edit?
 		user.register_user? || user.staff_user? || user.admin? || user.super_admin?
 	end

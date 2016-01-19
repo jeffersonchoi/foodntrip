@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @users
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   def create
