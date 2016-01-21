@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :userplaces
-  resources :places
+
   get 'welcome/index'
 
   devise_for :users, controllers: {
@@ -18,7 +17,10 @@ Rails.application.routes.draw do
 
   # get '/login' => "devise/sessions#new"
 
-  resources :users
+  resources :users do
+    resources :userplaces
+  end
+  resources :places
 
   # root to: 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
