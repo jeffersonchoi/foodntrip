@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :userplaces
   resources :places
   get 'welcome/index'
 

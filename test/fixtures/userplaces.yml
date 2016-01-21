@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  place_id: 
+  bookmark: false
+  check_in: 1
+  bookmark_date: 2016-01-21
+  checkin_date: 2016-01-21
+
+two:
+  user_id: 
+  place_id: 
+  bookmark: false
+  check_in: 1
+  bookmark_date: 2016-01-21
+  checkin_date: 2016-01-21

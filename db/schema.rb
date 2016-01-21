@@ -1,4 +1,4 @@
-# encoding: UTF-8
+git # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121204447) do
+ActiveRecord::Schema.define(version: 20160121205947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 20160121204447) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "userplaces", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "place_id"
+    t.boolean  "bookmark"
+    t.integer  "check_in"
+    t.date     "bookmark_date"
+    t.date     "checkin_date"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "userplaces", ["place_id"], name: "index_userplaces_on_place_id", using: :btree
+  add_index "userplaces", ["user_id"], name: "index_userplaces_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -60,4 +74,6 @@ ActiveRecord::Schema.define(version: 20160121204447) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "userplaces", "places"
+  add_foreign_key "userplaces", "users"
 end

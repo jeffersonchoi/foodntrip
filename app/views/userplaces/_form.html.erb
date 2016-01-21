@@ -1,0 +1,41 @@
+<%= form_for(@userplace) do |f| %>
+  <% if @userplace.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@userplace.errors.count, "error") %> prohibited this userplace from being saved:</h2>
+
+      <ul>
+      <% @userplace.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :place_id %><br>
+    <%= f.text_field :place_id %>
+  </div>
+  <div class="field">
+    <%= f.label :bookmark %><br>
+    <%= f.check_box :bookmark %>
+  </div>
+  <div class="field">
+    <%= f.label :check_in %><br>
+    <%= f.number_field :check_in %>
+  </div>
+  <div class="field">
+    <%= f.label :bookmark_date %><br>
+    <%= f.date_select :bookmark_date %>
+  </div>
+  <div class="field">
+    <%= f.label :checkin_date %><br>
+    <%= f.date_select :checkin_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
