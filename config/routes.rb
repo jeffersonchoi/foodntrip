@@ -17,9 +17,9 @@ Rails.application.routes.draw do
 
   # get '/login' => "devise/sessions#new"
 
-  resources :users do
-    end
+  resources :users
   resources :places
+  match '/showcoordinate', to: 'places#show_coordinate', :via => [:post]
 
   # root to: 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.

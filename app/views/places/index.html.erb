@@ -60,14 +60,34 @@ var x = document.getElementById("current-location-box");
 
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.watchPosition(showPosition);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
 function showPosition(position) {
+  var y_lat;
+  var y_long;
+
     x.innerHTML = "Latitude: " + position.coords.latitude +
     "<br>Longitude: " + position.coords.longitude;
+    y_lat = position.coords.latitude;
+    y_long = position.coords.longitude;
+    updateCoordinate(y_lat, y_long)
+}
+
+function updateCoordinate(y_lat, y_long) {
+  var params = {'y_lat' : y_lat, 'y_long' : y_long}
+  $.post("/showcoordinate", params, function() {
+    console.log('posting ' , params)
+  })
+  .done(function(data){
+    debugger
+  })
+  .fail(function(data){
+    console.log("fail", data)
+  })
+
 }
 </script>
