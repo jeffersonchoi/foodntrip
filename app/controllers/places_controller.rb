@@ -11,9 +11,9 @@ class PlacesController < ApplicationController
     #   latitude: 34.0503369 ,
     #   longitude: -118.255251
     # }
-    @lists = Yelp.client.search('Los Angeles Downtown', params)
+    @lists ||= Yelp.client.search('Los Angeles Downtown', params)
     # @lists = Yelp.client.search_by_coordinates(coordinates, params)
-    @places = @lists.businesses
+    @places ||= @lists.businesses
     # debugger
 
     # @places = Place.all

@@ -1,14 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 
-<p>Click the button to get your coordinates.</p>
-
-<button onclick="getLocation()">Try It</button>
-
-<p id="current-location-box"></p>
-
-
-
 <h1>Listing Places</h1>
 
 <table>
@@ -30,11 +22,11 @@
     </tr>
   </thead>
 
-  <tbody id='test'>
+  <tbody>
     <% @places.each do |place| %>
       <tr>
 
-        <td id='place'><%= place.id %> </td>
+        <td><%= place.id %> </td>
         <td><%= place.name %></td>
         <td><%= place.rating %> </td>
         <td><%= place.location.coordinate.latitude %></td>
@@ -54,41 +46,3 @@
 </table>
 <img src="//s3-media4.fl.yelpcdn.com/assets/srv0/developer_pages/c2e071437bfb/assets/img/yelp_review_btn_red@2x.png" alt="Reviews from Yelp, red" width="140" ,="" height="30">
 <br>
-
-<script>
-var x = document.getElementById("current-location-box");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-  var y_lat;
-  var y_long;
-
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-    y_lat = position.coords.latitude;
-    y_long = position.coords.longitude;
-    updateCoordinate(y_lat, y_long)
-}
-
-function updateCoordinate(y_lat, y_long) {
-  var params = {'y_lat' : y_lat, 'y_long' : y_long}
-  $.post("/showcoordinate", params, function() {
-    console.log('posting ' , params)
-  })
-  .done(function(data){
-    // window.location.href = '<%= places_path %>';
-    document.getElementById('place').innerText = data['places'][0]['hash']['name'];
-  })
-  .fail(function(data){
-    console.log("fail", data)
-  })
-
-}
-</script>
