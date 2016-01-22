@@ -18,8 +18,7 @@ Rails.application.routes.draw do
   # get '/login' => "devise/sessions#new"
 
   resources :users do
-    resources :userplaces
-  end
+    end
   resources :places
 
   # root to: 'users#index'
