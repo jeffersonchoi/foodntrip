@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="current-location-box"></p>
+
+
+
 <h1>Listing Places</h1>
 
 <table>
@@ -10,7 +19,6 @@
       <th>Rating</th>
       <th>Latitude</th>
       <th>Longitude</th>
-      <th>Description</th>
       <th>Address</th>
       <th>City</th>
       <th>Country</th>
@@ -46,3 +54,20 @@
 </table>
 <img src="//s3-media4.fl.yelpcdn.com/assets/srv0/developer_pages/c2e071437bfb/assets/img/yelp_review_btn_red@2x.png" alt="Reviews from Yelp, red" width="140" ,="" height="30">
 <br>
+
+<script>
+var x = document.getElementById("current-location-box");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
