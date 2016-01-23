@@ -7,12 +7,12 @@ class PlacesController < ApplicationController
     params = { term: 'food',
           sort: 1
          }
-    # coordinates = {
-    #   latitude: 34.0503369 ,
-    #   longitude: -118.255251
-    # }
-    @lists ||= Yelp.client.search('Los Angeles Downtown', params)
-    # @lists = Yelp.client.search_by_coordinates(coordinates, params)
+    coordinates = {
+      latitude: session[:y_lat],
+      longitude: session[:y_long]
+    }
+    # @lists ||= Yelp.client.search('Los Angeles Downtown', params)
+    @lists = Yelp.client.search_by_coordinates(coordinates, params)
     @places ||= @lists.businesses
     # debugger
 
@@ -30,6 +30,8 @@ class PlacesController < ApplicationController
     }
     @lists = Yelp.client.search_by_coordinates(coordinates, x)
     @places = @lists.businesses
+    session[:y_lat] = params[:y_lat]
+    session[:y_long] = params[:y_long]
     respond_to do |format|
       format.json {render json: {lists: @lists, places: @places}, status: 200}
     end

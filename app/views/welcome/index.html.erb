@@ -1,6 +1,6 @@
 <% provide(:title, "HomePage") %>
 
-<html class="index-background">
+<!-- <html class="index-background">
     <div class="index-tran-box">
       <div class="index-box">
         <div class="index-header"> FoodnTrip </div>
@@ -11,4 +11,53 @@
         <div class="index-last-button"><%= button_to "I Want it Now!", '#', :class=> " btn btn-lng index-red-button", :method => "get" %></div>
       </div>
     </div>
-</html>
+</html> -->
+
+
+<p id="notice"><%= notice %></p>
+
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="current-location-box"></p>
+
+<script>
+var x = document.getElementById("current-location-box");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+  var y_lat;
+  var y_long;
+
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+    y_lat = position.coords.latitude;
+    y_long = position.coords.longitude;
+    updateCoordinate(y_lat, y_long)
+}
+
+function updateCoordinate(y_lat, y_long) {
+  var params = {'y_lat' : y_lat, 'y_long' : y_long}
+  $.post("/showcoordinate", params, function() {
+    console.log('posting ' , params)
+  })
+  .done(function(data){
+    window.location.href = '<%= places_path %>';
+    // document.getElementById('place').innerText = data['places'][0]['hash']['name'];
+    console.log("yo")
+  })
+  .fail(function(data){
+    console.log("fail", data)
+  })
+
+}
+</script>
