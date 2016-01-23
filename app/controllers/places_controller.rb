@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.json
   def index
-    params = { term: 'food',
+    params = { term: 'Restaurants',
           sort: 1,
           limit: 20
          }
@@ -15,6 +15,9 @@ class PlacesController < ApplicationController
     # @lists ||= Yelp.client.search('Los Angeles Downtown', params)
     @lists = Yelp.client.search_by_coordinates(coordinates, params)
     @places ||= @lists.businesses
+    puts "----------------------------------------------------"
+    puts request.remote_ip
+    puts "----------------------------------------------------"
     # @places = Place.all
   end
 

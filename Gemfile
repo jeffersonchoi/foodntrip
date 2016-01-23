@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'yelp', require: 'yelp'
 #roles, authorization system
 gem 'pundit'
+#ruby
+gem 'geocoder'
 #bootstrap
 gem 'bootstrap-sass'
 #storing env

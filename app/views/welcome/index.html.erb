@@ -30,9 +30,15 @@
 
 var x = document.getElementById("current-location-box");
 
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+}
+
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition, showError);
+        navigator.geolocation.watchPosition(showPosition, showError, options);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
