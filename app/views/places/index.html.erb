@@ -43,7 +43,10 @@
         <td><%= place.location.city %></td>
         <td><%= place.location.country_code %></td>
         <td><%= place.review_count %></td>
-        <td><img src = "<%= place.image_url %>" %></td>
+        <% if place.image_url %>
+          <td><img src = "<%= place.image_url %>" ></td>
+        <% end %>
+
         <td><%= place.categories %></td>
         <td><%= place.snippet_text %></td>
 

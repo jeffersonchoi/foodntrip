@@ -1,13 +1,17 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /places
   # GET /places.json
   def index
-    params = { term: 'Restaurants',
-          sort: 1,
-          limit: 20
-         }
+
+    params = {
+      term: get_current_time,
+      sort: 1,
+      limit: 20
+    }
     coordinates = {
       latitude: session[:y_lat],
       longitude: session[:y_long]
@@ -16,7 +20,8 @@ class PlacesController < ApplicationController
     @lists = Yelp.client.search_by_coordinates(coordinates, params)
     @places ||= @lists.businesses
     puts "----------------------------------------------------"
-    puts request.remote_ip
+    puts request.ip + 'local proxy ip'
+    puts request.remote_ip + 'client ip'
     puts "----------------------------------------------------"
     # @places = Place.all
   end
@@ -95,6 +100,19 @@ class PlacesController < ApplicationController
   end
 
   private
+    def get_current_time
+      t = Time.now
+      case t.hour
+        when 6..11
+          "breakfast"
+        when 11..17
+          "lunch"
+        when 17..23
+          "dinner"
+        else
+          "restaurants"
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_place
       @place = Place.find(params[:id])
