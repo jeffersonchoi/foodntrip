@@ -46,9 +46,12 @@
         <% if place.image_url %>
           <td><img src = "<%= place.image_url %>" ></td>
         <% end %>
-
-        <td><%= place.categories %></td>
-        <td><%= place.snippet_text %></td>
+        <% if place.categories %>
+          <td><%= place.categories %></td>
+        <% end %>
+        <% if place.snippet_text %>
+          <td><%= place.snippet_text %></td>
+        <% end %>
 
 
       </tr>
