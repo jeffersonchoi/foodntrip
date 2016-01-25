@@ -26,17 +26,7 @@ class PlacesController < ApplicationController
     # @places = Place.all
   end
 
-  def show_coordinate
-
-    x = { term: 'food',
-          sort: 1
-         }
-    coordinates = {
-      latitude: params[:y_lat] ,
-      longitude: params[:y_long]
-    }
-    @lists = Yelp.client.search_by_coordinates(coordinates, x)
-    @places = @lists.businesses
+  def show_coordinate #set_coordinate_session
     session[:y_lat] = params[:y_lat]
     session[:y_long] = params[:y_long]
 

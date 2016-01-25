@@ -10,5 +10,13 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
-  
+
+  def method_caller(obj, *args)
+    args.each do |arg|
+      return nil unless obj.respond_to? arg
+      obj = obj.send(arg)
+    end
+    return obj
+  end
+
 end

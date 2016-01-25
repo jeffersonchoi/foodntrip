@@ -23,7 +23,7 @@
       <th>City</th>
       <th>Country</th>
       <th>Review Count</th>
-      <th>Image</th>
+      <!-- <th>Image</th> -->
       <th>Categories</th>
       <th>Snippet Text</th>
       <th colspan="3"></th>
@@ -34,16 +34,18 @@
     <% @places.each do |place| %>
       <tr>
 
-        <td id='place'><%= place.id %> </td>
-        <td><%= place.name %></td>
-        <td><%= place.rating %> </td>
-        <td><%= place.location.coordinate.latitude %></td>
-        <td><%= place.location.coordinate.longitude %></td>
-        <td><%= place.location.display_address %></td>
-        <td><%= place.location.city %></td>
-        <td><%= place.location.country_code %></td>
-        <td><%= place.review_count %></td>
-
+        <td><%= place.id %> </td>
+        <td><%= method_caller place, :name %></td>
+        <td><%= method_caller place, :rating %> </td>
+        <td><%= method_caller place, :location, :coordinate, :latitude %></td>
+        <td><%= method_caller place, :location, :coordinate, :longitude %></td>
+        <td><%= method_caller place, :location, :display_address %></td>
+        <td><%= method_caller place, :location, :city %></td>
+        <td><%= method_caller place, :location, :country_code %></td>
+        <td><%= method_caller place, :review_count %></td>
+        <td><img src = "<%= place.image_url if method_caller(place, :image_url) %>" ></td>
+        <td><%= method_caller place, :categories %></td>
+        <td><%= method_caller place, :snippet_text %></td>
 
 
       </tr>
