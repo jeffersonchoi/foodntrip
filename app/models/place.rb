@@ -2,13 +2,18 @@ class Place < ActiveRecord::Base
   has_many :userplaces
   has_many :users, through: :userplaces
 
-  # def myhelper(*args)
-  #   obj = self
-  #   Array(args).each do |arg|
-  #     return nil unless self.respond_to? arg
-  #     obj = obj.send(arg)
-  #   end
-  #   return obj
-  # end
+  def self.get_current_time
+    t = Time.now
+    case t.hour
+      when 6..11
+        "breakfast"
+      when 11..17
+        "lunch"
+      when 17..23
+        "dinner"
+      else
+        "restaurants"
+    end
+  end
 
 end
