@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
     @lists = Yelp.client.search_by_coordinates(coordinates, params)
     @places ||= @lists.businesses
     puts "----------------------------------------------------"
+    puts coordinates
     puts request.ip + 'local proxy ip'
     puts request.remote_ip + 'client ip'
     puts "----------------------------------------------------"
